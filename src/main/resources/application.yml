@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://njjoshi0686:Me#21061986@nj-cluster.9xlk5.mongodb.net/?retryWrites=true&w=majority&appName=nj-cluster
+      database: Task
