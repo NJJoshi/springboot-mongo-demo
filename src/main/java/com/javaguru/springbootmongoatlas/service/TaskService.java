@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
+import static java.util.Objects.requireNonNull;
+
 @Service
 public class TaskService {
 
@@ -43,11 +45,11 @@ public class TaskService {
         Task existingTask = taskRepository.findById(task.getTaskId()).orElse(null);
 
         //populate new value from request to existing object/entity/document
-        existingTask.setTaskId(task.getTaskId());
-        existingTask.setAssignee(task.getAssignee());
-        existingTask.setDescription(task.getDescription());
-        existingTask.setAssignee(task.getAssignee());
-        existingTask.setStoryPoints(task.getStoryPoints());
+        requireNonNull(existingTask).setTaskId(task.getTaskId());
+        requireNonNull(existingTask).setAssignee(task.getAssignee());
+        requireNonNull(existingTask).setDescription(task.getDescription());
+        requireNonNull(existingTask).setAssignee(task.getAssignee());
+        requireNonNull(existingTask).setStoryPoints(task.getStoryPoints());
 
         return taskRepository.save(task);
     }
